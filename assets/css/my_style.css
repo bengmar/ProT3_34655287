@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #bdab45;
+}
+
+.container-logo {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+.big-logo {
+  border-radius: 50%;
+}
+@media screen and (max-width: 768px){
+  .big-logo {
+    width: 70%;
+  }
+}
+
+section {
+  padding: 20px;
+  margin-bottom: 5vh;
+}
+footer {
+  background-color: #94700c; /* Color de fondo del footer */
+  color: #fff;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-content {
+  margin-right: 5px;
+  text-align: center;
+}
+.redes {
+  display: flex;
+  justify-content: center;
+}
+.redes a img,
+.logo {
+  height: 35px;
+  margin: 2px;
+  padding: 0 3px;
+}
+.logo {
+  border-radius: 50%;
+}
+.footer-content p {
+  color: #fff;
+}
+
+/* Estilos para el nav y enlaces de ul y li */
+nav {
+  background-color: #94700c;
+}
+nav ul li a {
+  padding: 5px 16px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+nav ul li a:hover {
+  background-color: #b4ac7c;
+}
+
+/* Estilos para las imágenes */
+.carousel-item > img {
+  border: 3px solid #94700c; /* Contorno de 3px con un color marron (#94700c) alrededor de la img.*/
+  border-radius: 10px; /* Borde redondeado de 10px para suavizar el contorno */
+  margin: 0 auto;
+}
+
+.nav-link {
+  color: aliceblue;
+}
+
+.btn-details {
+  border: 1px solid rgb(117, 83, 11);
+  background-color: #bdab45;
+  color: white;
+}
+.btn-details:hover {
+  border-color: white;
+  background-color: #94700c;
+  color: whitesmoke;
+}
+.form-micss {
+  border: 2px solid #94700c;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.card > img {
+  height: 60%;
+  object-fit: cover;
+  object-position: 0 19%;
+}
+
+.card {
+  background-color: #bdab45;
+  color: #79611f;
+  text-align: center;
+  font-style: italic;
+  font-size: 18px;
+  overflow: hidden;
+  border: 2px solid #94700c;
+}
+
+.card > img:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+.acerca_de > p {
+  color: #79611f;
+  font-style: italic;
+  font-size: 20px;
+  margin: 20px;
+  padding: 10px;
+  border: 3px solid #94700c;
+  border-radius: 15px;
+  text-align: center;
+}
+#titulo {
+  font-size: 45px;
+  color:#94700c;
+  font-weight: bold;
+}
