@@ -62,21 +62,17 @@ class UsuarioController extends BaseController
     public function update($id)
     {
         $userModel = new usuario_Model();
+        //Validación de datos a editar
         $input = $this->validate(
             [
-                'apellido' => 'required|min_length[3]|max_length[25]',
-                'nombre' => 'required|min_length[3]',
-                'email' => 'required|min_length[4]|max_length[100]|valid_email|is_unique[usuarios.email]',
-                'usuario' => 'required|min_length[3]',
-                'pass' => 'required|min_length[4]|max_length[20]',
+                'apellido' => 'permit_empty|max_length[25]',
+                'nombre' => 'permit_empty|max_length[40]',
+                'email' => 'permit_empty|max_length[100]|valid_email|is_unique[usuarios.email]',
+                'usuario' => 'permit_empty|max_length[15]',
+                'pass' => 'permit_empty|max_length[20]',
             ]
         );
-        if (!$input) {
-            session()->setFlashdata('msg','Debe rellenar todos los campos.Reintente');
-            return redirect()->to('/panel');
-        }
-
-
+        // Si los datos pasan la validación se procede a almacenarlos en un array del que luego se filtrarán los campos vacíos antes de actualizar la cuenta =D
         if ($input) {
             $data = [
                 'apellido' => $this->request->getPost('apellido'),
@@ -85,10 +81,19 @@ class UsuarioController extends BaseController
                 'usuario' =>  $this->request->getPost('usuario'),
                 'pass' => password_hash($this->request->getVar('pass'), PASSWORD_DEFAULT),
             ];
+            $data =array_filter($data, function($value){
+                return $value !== '' && $value !== null;
+            });
             $userModel->update($id, $data);
-            session()->setFlashdata('msg','Datos actualizados correctamente.');
+            session()->setFlashdata('msg','¡HECHO!');
             return redirect()->to("/panel");
+        } else {
+            session()->setFlashdata('msg','Datos ingresados no válidos. Posibles causas: email no válido, email en uso o se ha excedido en el límite de carácteres permitido.');
+            return redirect()->to('/editarCuenta');
         }
+
+
+        
     }
 
     public function editarCuenta()
