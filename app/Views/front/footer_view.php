@@ -1,4 +1,4 @@
-<footer>
+<footer class="fixed-bottom">
     <div class="redes">
         <a href="https://telegram.org"><img src="assets//img/logos/logotelegram.png" alt="telegram logo" /></a>
         <a href="https://instagram.com"><img src="assets/img/logos/logoinstagram.png" alt="instagram logo" /></a>
